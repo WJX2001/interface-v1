@@ -1,16 +1,7 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+.wjx {
+  button {
+    /* background: linear-gradient(248.86deg, #B6509E 10.51%, #2EBAC6 93.41%) !important; */
+    /* background: #383D51 !important; */
+    height: 36px !important;
+  }
 }

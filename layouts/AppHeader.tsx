@@ -9,6 +9,7 @@ import {
 import { HEADERHEIGHT } from '../src/types/enum';
 import Box from '@mui/material/Box';
 import NavItems from './components/NavItems';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 interface Props {
   children: React.ReactElement;
 }
@@ -64,6 +65,12 @@ const AppHeader = () => {
         </Box>
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <NavItems />
+        </Box>
+        <Box display={'flex'} flexDirection={'row-reverse'} flex={1}>
+          <div className="wjx">
+            <ConnectButton 
+            ></ConnectButton>
+          </div>
         </Box>
       </Box>
     </HideOnScroll>
