@@ -68,8 +68,7 @@ const AppHeader = () => {
         </Box>
         <Box display={'flex'} flexDirection={'row-reverse'} flex={1}>
           <div className="wjx">
-            <ConnectButton 
-            ></ConnectButton>
+            <ConnectButton showBalance={false}></ConnectButton>
           </div>
         </Box>
       </Box>
