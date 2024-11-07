@@ -8,18 +8,31 @@ import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 
 import { config } from '../wagmi';
 import Layout from '../../layouts/Layout';
+import { AppGlobalStyles } from '../../layouts/AppGlobalStyles';
+import React, { ReactNode } from 'react';
+import { NextPage } from 'next';
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
+
+interface MyAppProps extends AppProps {
+  Component: NextPageWithLayout;
+}
 
 const client = new QueryClient();
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp(props: MyAppProps) {
+  const { Component, pageProps } = props;
+  const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={client}>
         <RainbowKitProvider>
           {/* <Component {...pageProps} /> */}
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <AppGlobalStyles>
+            {getLayout(<Component {...pageProps} />)}
+          </AppGlobalStyles>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

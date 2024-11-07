@@ -1,12 +1,10 @@
 import type { NextPage } from 'next';
-import Home from './home/page';
+import MainLayout from '../../layouts/MainLayout';
 
-const Index: NextPage = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+export default function Home() {
+  return 1111;
+}
+
+Home.getLayout = function getLayout(page: React.ReactElement) {
+  return <MainLayout>{page}</MainLayout>;
 };
-
-export default Index;
