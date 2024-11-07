@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  // enabled: process.env.ANALYZE === 'true',
-  enabled: true,
+  enabled: process.env.ANALYZE === 'true',
+  // enabled: true,
 })
+const pageExtensions = ['page.tsx'];
 const nextConfig = {
   reactStrictMode: true,
   webpack: config => {
@@ -25,6 +26,10 @@ const nextConfig = {
     config.experiments = { topLevelAwait: true }
     return config
   },
+  reactStrictMode: true,
+  // assetPrefix: "./",
+  trailingSlash: true,
+  pageExtensions,
 }
 
 module.exports = nextConfig

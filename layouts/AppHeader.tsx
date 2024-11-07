@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { HEADERHEIGHT } from '../src/types/enum';
 import Box from '@mui/material/Box';
+import NavItems from './components/NavItems';
 interface Props {
   children: React.ReactElement;
 }
@@ -15,7 +16,7 @@ const AppHeader = () => {
   // 当向下滚动的时候对菜单栏进行隐藏
   const HideOnScroll = ({ children }: Props) => {
     const { breakpoints } = useTheme();
-    console.log(breakpoints,'222')
+    console.log(breakpoints, '222');
     const md = useMediaQuery(breakpoints.down('md'));
     const trigger = useScrollTrigger({ threshold: md ? 160 : 80 });
     return (
@@ -60,6 +61,9 @@ const AppHeader = () => {
           // onClick={() => setMobileMenuOpen(false)}
         >
           <img src={uiConfig.appLogo} alt="AAVE" width={72} height={20} />
+        </Box>
+        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+          <NavItems />
         </Box>
       </Box>
     </HideOnScroll>
